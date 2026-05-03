@@ -5,14 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nourish AI Privacy Policy</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            color: #333;
-            line-height: 1.6;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; color: #333; line-height: 1.6; }
         h1 { color: #1a1a1a; font-size: 28px; }
         h2 { color: #2d6a4f; font-size: 20px; margin-top: 32px; }
         h3 { color: #333; font-size: 16px; }
@@ -21,11 +14,12 @@
         ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
         .contact { background: #f0faf4; border-left: 4px solid #2d6a4f; padding: 16px 20px; border-radius: 4px; margin-top: 32px; }
+        .disclaimer { background: #fff8e1; border-left: 4px solid #f9a825; padding: 16px 20px; border-radius: 4px; margin-top: 32px; }
     </style>
 </head>
 <body>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: April 29, 2026</p>
+    <p class="updated">Last updated: May 3, 2026</p>
 
     <p>This Privacy Policy describes how Cody Holman ("we," "us," or "our") collects, uses, and shares your information when you use the Nourish AI mobile application.</p>
 
@@ -35,35 +29,63 @@
         <li><strong>Account information:</strong> Email address and password when you create an account</li>
         <li><strong>Health and fitness data:</strong> Height, weight, age, gender, activity level, calorie goals, food logs, exercise logs, and weight history that you enter into the app</li>
         <li><strong>Profile information:</strong> Display name and profile photo (optional)</li>
-        <li><strong>Meal data:</strong> Saved meals, shopping lists, and AI query text</li>
+        <li><strong>Meal data:</strong> Saved meals, quick add entries, shopping lists, and AI query text</li>
+        <li><strong>Food photos:</strong> If you use the Snap Food feature, photos you take are temporarily processed to identify food and estimate calories. Photos are not stored on our servers — they are sent directly to Anthropic's Claude AI for analysis and are not retained after the response is received.</li>
+        <li><strong>Barcode scans:</strong> When you scan a product barcode, the barcode number is sent to Open Food Facts and the USDA FoodData Central API to retrieve nutrition information. No personal information is attached to these requests.</li>
     </ul>
 
     <h3>Information Collected Automatically</h3>
     <ul>
         <li><strong>Usage data:</strong> App features used, screens viewed, events triggered, and session information collected via PostHog analytics</li>
         <li><strong>Device data:</strong> Device type, operating system version, and app version</li>
+        <li><strong>Disclaimer acceptance:</strong> When you accept our health disclaimer, the date, app version, and disclaimer version are stored locally on your device</li>
     </ul>
 
     <h2>How We Use Your Information</h2>
     <ul>
         <li>To provide and improve the Nourish AI app and its features</li>
         <li>To personalize AI-generated calorie estimates and meal suggestions using your health profile</li>
+        <li>To identify food from photos and estimate calorie content using AI</li>
+        <li>To look up nutrition information for scanned barcodes</li>
         <li>To send meal logging and weigh-in reminders (only if you enable notifications)</li>
         <li>To analyze usage trends and improve the user experience</li>
         <li>To respond to your support requests</li>
     </ul>
 
+    <h2>AI Features — Powered by Anthropic's Claude</h2>
+    <p>Nourish AI uses <strong>Anthropic's Claude AI</strong> to power its natural language food logging, calorie estimation, meal idea generation, and food photo analysis features. When you:</p>
+    <ul>
+        <li><strong>Type a food description</strong> — your text is sent to Claude to estimate calories and generate a response</li>
+        <li><strong>Snap a food photo</strong> — your photo is temporarily sent to Claude's vision API to identify the food and estimate calories. The photo is not stored after the response is received.</li>
+        <li><strong>Ask for meal ideas</strong> — your request and any relevant health context is sent to Claude to generate recipe suggestions</li>
+    </ul>
+    <p>All AI requests are routed through our secure Cloudflare proxy server. Your full health profile is never sent to Anthropic — only the minimum information needed to answer your query. Anthropic's privacy policy is available at <a href="https://www.anthropic.com/privacy">anthropic.com/privacy</a>.</p>
+    <p><em>AI-generated calorie estimates are approximations and may not reflect exact nutritional values. See the Health Disclaimer below.</em></p>
+
+    <h2>Barcode Scanning</h2>
+    <p>When you scan a product barcode, the barcode number is sent to the following free public databases to retrieve product and nutrition information:</p>
+    <ul>
+        <li><strong>Open Food Facts</strong> — a crowdsourced public food database. Privacy policy at <a href="https://world.openfoodfacts.org/privacy">openfoodfacts.org/privacy</a></li>
+        <li><strong>USDA FoodData Central</strong> — the US government's food and nutrition database. No personal data is sent with barcode lookup requests.</li>
+    </ul>
+    <p>No personal information is included in barcode lookup requests. The barcode number itself is not linked to your account.</p>
+
     <h2>How We Share Your Information</h2>
     <p>We share your information with the following third-party services to operate the app:</p>
     <ul>
-        <li><strong>Anthropic:</strong> Your AI query text is sent to Anthropic's Claude API (via our Cloudflare proxy) to generate calorie estimates and meal suggestions. We do not send your full health profile to Anthropic — only the text you type.</li>
-        <li><strong>Cloudflare:</strong> Used as a proxy server to securely forward AI requests. Cloudflare may log request metadata per their standard practices.</li>
+        <li><strong>Anthropic (Claude AI):</strong> Text queries, food photos (temporarily), and minimal health context are sent to Anthropic's Claude API via our Cloudflare proxy to generate AI responses. Photos are not stored after processing.</li>
+        <li><strong>Cloudflare:</strong> Used as a secure proxy server to forward AI requests and protect our API credentials. Cloudflare may log request metadata per their standard practices.</li>
+        <li><strong>Open Food Facts:</strong> Barcode numbers are sent to retrieve product nutrition information.</li>
+        <li><strong>USDA FoodData Central:</strong> Barcode numbers are sent to retrieve US branded food nutrition data.</li>
         <li><strong>PostHog:</strong> Used for analytics. PostHog collects anonymized usage events, device information, and your email address to identify your account in analytics. PostHog's privacy policy is available at <a href="https://posthog.com/privacy">posthog.com/privacy</a>.</li>
     </ul>
     <p>We do not sell your personal information to any third party.</p>
 
+    <h2>Camera and Photo Library</h2>
+    <p>If you use the Snap Food feature, the app will request access to your camera. Photos are only used to identify food and estimate calories — they are sent directly to Anthropic's Claude AI and are not stored on our servers or shared with any other party. You can revoke camera access at any time in your iPhone Settings.</p>
+
     <h2>Data Storage</h2>
-    <p>Your health data, calorie logs, and app settings are stored locally on your device using iOS secure storage. Your account credentials are stored in the iOS Keychain. Analytics data is stored by PostHog on their servers.</p>
+    <p>Your health data, calorie logs, quick add entries, and app settings are stored locally on your device using iOS secure storage. Your account credentials are stored in the iOS Keychain. Analytics data is stored by PostHog on their servers. Disclaimer acceptance is stored locally on your device only.</p>
 
     <h2>Data Retention</h2>
     <p>We retain your personal information for as long as your account is active. If you delete your account, your data stored on your device will be removed. To request deletion of your analytics data held by PostHog, contact us at the email below.</p>
@@ -85,10 +107,17 @@
     <p>If you enable notifications, we will send meal logging reminders and weight check-in reminders at times you specify. You can disable notifications at any time in your iPhone Settings.</p>
 
     <h2>Security</h2>
-    <p>We implement appropriate technical measures to protect your information, including iOS Keychain for credential storage, encrypted API communication via HTTPS, and a secure Cloudflare proxy to protect our API credentials.</p>
+    <p>We implement appropriate technical measures to protect your information, including iOS Keychain for credential storage, encrypted API communication via HTTPS, and a secure Cloudflare proxy to protect our API credentials. Food photos are transmitted over encrypted connections and are not stored after processing.</p>
 
     <h2>Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by updating the date at the top of this page.</p>
+
+    <div class="disclaimer">
+        <h2 style="margin-top:0">Health Disclaimer</h2>
+        <p>Nourish AI is designed for general wellness and informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before making significant changes to your diet or exercise routine.</p>
+        <p>Calorie and nutrition estimates are generated by artificial intelligence and may not be accurate for every food, portion, or individual. Use them as a general guide, not an exact measurement. Results can vary based on preparation, brand, and serving size.</p>
+        <p>When you first use the app, you will be asked to acknowledge this disclaimer. Your acceptance is recorded locally on your device along with the date, app version, and disclaimer version number.</p>
+    </div>
 
     <div class="contact">
         <h2 style="margin-top:0">Contact Us</h2>
@@ -96,9 +125,5 @@
         <strong>Cody Holman</strong><br>
         <a href="mailto:codyholman91@gmail.com">codyholman91@gmail.com</a></p>
     </div>
-    <h2>Health Disclaimer</h2>
-    <p>Nourish AI is designed for general wellness and informational purposes only. It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before making significant changes to your diet or exercise routine.</p>
-    <p>Calorie and nutrition estimates are generated by artificial intelligence and may not be accurate for every food, portion, or individual. Use them as a general guide, not an exact measurement.</p>
-    <p>When you first use the app, you will be asked to acknowledge this disclaimer. Your acceptance is recorded locally on your device along with the date, app version, and disclaimer version number.</p>
 </body>
 </html>
